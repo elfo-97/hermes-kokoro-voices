@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kokoro-82M voices (hermes-kokoro-tts)</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { color-scheme: light dark;
+          --fg: #1f2328; --dim: #59636e; --line: #d1d9e0; --bg: #fff; --card: #f6f8fa;
+          --border: #6e7781; --accent: #0969da; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg: #f0f6fc; --dim: #9198a1; --line: #3d444d; --bg: #0d1117; --card: #151b23;
+            --border: #6e7781; --accent: #4493f8; }
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0 auto; max-width: 52rem; padding: 2rem 1.25rem 4rem; background: var(--bg); color: var(--fg);
+         font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  ::selection { background: var(--accent); color: var(--bg); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+  p.lead { color: var(--dim); margin: 0 0 1.5rem; max-width: 62ch; }
+  a { color: inherit; }
+  nav { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+  nav a { border: 1px solid var(--border); border-radius: 999px; padding: .25rem .75rem; font-size: .85rem;
+          text-decoration: none; }
+  nav a:hover { background: var(--card); }
+  section { margin-bottom: 2.5rem; scroll-margin-top: 1rem; }
+  h2 { font-size: 1rem; border-bottom: 1px solid var(--line); padding-bottom: .4rem; }
+  .voice { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: .3rem .75rem;
+           padding: .7rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 1rem;
+           transition: background-color .18s ease-out; }
+  .voice:target, .voice[aria-current="true"] { background: var(--card); }
+  .id { font-weight: 600; overflow-wrap: anywhere; }
+  .id .meta { color: var(--dim); font-weight: 400; }
+  .controls { display: flex; align-items: center; gap: .5rem; }
+  /* fixed width on purpose: a percentage inside a content-sized column resolves to 0 */
+  audio { width: 260px; height: 34px; }
+  button { border: 1px solid var(--border); background: var(--card); color: var(--fg); border-radius: 6px;
+           min-height: 34px; padding: .25rem .7rem; font-size: .8rem; cursor: pointer; }
+  button:hover { border-color: var(--dim); background: var(--bg); }
+  button[disabled] { cursor: default; }
+  .cmd { grid-column: 1 / -1; }
+  summary { cursor: pointer; color: var(--dim); font-size: .8rem; width: fit-content; }
+  .cmd code { display: block; margin-top: .4rem; padding: .45rem .6rem; background: var(--card);
+              border: 1px solid var(--line); border-radius: 6px; overflow-wrap: anywhere;
+              font: .8rem/1.4 ui-monospace, "SFMono-Regular", Consolas, monospace; }
+  .err { color: var(--dim); font-size: .8rem; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);
+                     white-space: nowrap; }
+  @keyframes rise { from { opacity: 0; transform: translateY(-3px); } }
+  .cmd code { animation: rise .18s cubic-bezier(.2, .8, .2, 1) both; }
+  @media (prefers-reduced-motion: reduce) { .voice { transition: none; } .cmd code { animation: none; } }
+  @media (max-width: 640px) {
+    .voice { grid-template-columns: 1fr; }
+    .controls { justify-content: space-between; }
+    audio { width: auto; flex: 1 1 auto; min-width: 0; }
+  }
+  @media (pointer: coarse) { button { min-height: 44px; min-width: 44px; } }
+</style>
+<h1>Kokoro-82M voices</h1>
+<p class="lead">54 voices in 9 languages, all from the same model. Samples generated locally by
+<a href="https://github.com/elfo-97/hermes-kokoro-tts">hermes-kokoro-tts</a>.</p>
+<noscript><p class="lead">JavaScript is off: the players still work and each voice's
+<em>command</em> opens on click, but the copy buttons do nothing. Select the command and copy it by hand.</p></noscript>
+<nav><a href="#en-us">English (US)</a>
+<a href="#en-gb">English (UK)</a>
+<a href="#es">Español</a>
+<a href="#fr">Français</a>
+<a href="#hi">हिन्दी</a>
+<a href="#it">Italiano</a>
+<a href="#ja">日本語</a>
+<a href="#pt-br">Português (BR)</a>
+<a href="#zh">中文</a></nav>
+<p id="status" class="visually-hidden" role="status" aria-live="polite"></p>
+<section id="en-us" lang="en-US">
+  <h2>English (US) · en-us</h2>
+  <div class="voice" id="af_heart">
+    <div class="id">af_heart <span class="meta">· female · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/af_heart.mp3"
+             aria-label="af_heart sample, female, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice af_heart" data-voice="af_heart"
+              aria-label="Copy the command for af_heart">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice af_heart</code></details>
+  </div>
+
+  <div class="voice" id="af_alloy">
+    <div class="id">af_alloy <span class="meta">· female · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/af_alloy.mp3"
+             aria-label="af_alloy sample, female, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice af_alloy" data-voice="af_alloy"
+              aria-label="Copy the command for af_alloy">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice af_alloy</code></details>
+  </div>
+
+  <div class="voice" id="af_aoede">
+    <div class="id">af_aoede <span class="meta">· female · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/af_aoede.mp3"
+             aria-label="af_aoede sample, female, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice af_aoede" data-voice="af_aoede"
+              aria-label="Copy the command for af_aoede">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice af_aoede</code></details>
+  </div>
+
+  <div class="voice" id="af_bella">
+    <div class="id">af_bella <span class="meta">· female · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/af_bella.mp3"
+             aria-label="af_bella sample, female, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice af_bella" data-voice="af_bella"
+              aria-label="Copy the command for af_bella">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice af_bella</code></details>
+  </div>
+
+  <div class="voice" id="af_jessica">
+    <div class="id">af_jessica <span class="meta">· female · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/af_jessica.mp3"
+             aria-label="af_jessica sample, female, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice af_jessica" data-voice="af_jessica"
+              aria-label="Copy the command for af_jessica">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice af_jessica</code></details>
+  </div>
+
+  <div class="voice" id="af_kore">
+    <div class="id">af_kore <span class="meta">· female · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/af_kore.mp3"
+             aria-label="af_kore sample, female, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice af_kore" data-voice="af_kore"
+              aria-label="Copy the command for af_kore">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice af_kore</code></details>
+  </div>
+
+  <div class="voice" id="af_nicole">
+    <div class="id">af_nicole <span class="meta">· female · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/af_nicole.mp3"
+             aria-label="af_nicole sample, female, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice af_nicole" data-voice="af_nicole"
+              aria-label="Copy the command for af_nicole">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice af_nicole</code></details>
+  </div>
+
+  <div class="voice" id="af_nova">
+    <div class="id">af_nova <span class="meta">· female · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/af_nova.mp3"
+             aria-label="af_nova sample, female, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice af_nova" data-voice="af_nova"
+              aria-label="Copy the command for af_nova">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice af_nova</code></details>
+  </div>
+
+  <div class="voice" id="af_river">
+    <div class="id">af_river <span class="meta">· female · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/af_river.mp3"
+             aria-label="af_river sample, female, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice af_river" data-voice="af_river"
+              aria-label="Copy the command for af_river">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice af_river</code></details>
+  </div>
+
+  <div class="voice" id="af_sarah">
+    <div class="id">af_sarah <span class="meta">· female · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/af_sarah.mp3"
+             aria-label="af_sarah sample, female, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice af_sarah" data-voice="af_sarah"
+              aria-label="Copy the command for af_sarah">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice af_sarah</code></details>
+  </div>
+
+  <div class="voice" id="af_sky">
+    <div class="id">af_sky <span class="meta">· female · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/af_sky.mp3"
+             aria-label="af_sky sample, female, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice af_sky" data-voice="af_sky"
+              aria-label="Copy the command for af_sky">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice af_sky</code></details>
+  </div>
+
+  <div class="voice" id="am_adam">
+    <div class="id">am_adam <span class="meta">· male · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/am_adam.mp3"
+             aria-label="am_adam sample, male, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice am_adam" data-voice="am_adam"
+              aria-label="Copy the command for am_adam">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice am_adam</code></details>
+  </div>
+
+  <div class="voice" id="am_echo">
+    <div class="id">am_echo <span class="meta">· male · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/am_echo.mp3"
+             aria-label="am_echo sample, male, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice am_echo" data-voice="am_echo"
+              aria-label="Copy the command for am_echo">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice am_echo</code></details>
+  </div>
+
+  <div class="voice" id="am_eric">
+    <div class="id">am_eric <span class="meta">· male · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/am_eric.mp3"
+             aria-label="am_eric sample, male, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice am_eric" data-voice="am_eric"
+              aria-label="Copy the command for am_eric">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice am_eric</code></details>
+  </div>
+
+  <div class="voice" id="am_fenrir">
+    <div class="id">am_fenrir <span class="meta">· male · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/am_fenrir.mp3"
+             aria-label="am_fenrir sample, male, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice am_fenrir" data-voice="am_fenrir"
+              aria-label="Copy the command for am_fenrir">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice am_fenrir</code></details>
+  </div>
+
+  <div class="voice" id="am_liam">
+    <div class="id">am_liam <span class="meta">· male · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/am_liam.mp3"
+             aria-label="am_liam sample, male, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice am_liam" data-voice="am_liam"
+              aria-label="Copy the command for am_liam">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice am_liam</code></details>
+  </div>
+
+  <div class="voice" id="am_michael">
+    <div class="id">am_michael <span class="meta">· male · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/am_michael.mp3"
+             aria-label="am_michael sample, male, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice am_michael" data-voice="am_michael"
+              aria-label="Copy the command for am_michael">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice am_michael</code></details>
+  </div>
+
+  <div class="voice" id="am_onyx">
+    <div class="id">am_onyx <span class="meta">· male · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/am_onyx.mp3"
+             aria-label="am_onyx sample, male, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice am_onyx" data-voice="am_onyx"
+              aria-label="Copy the command for am_onyx">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice am_onyx</code></details>
+  </div>
+
+  <div class="voice" id="am_puck">
+    <div class="id">am_puck <span class="meta">· male · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/am_puck.mp3"
+             aria-label="am_puck sample, male, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice am_puck" data-voice="am_puck"
+              aria-label="Copy the command for am_puck">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice am_puck</code></details>
+  </div>
+
+  <div class="voice" id="am_santa">
+    <div class="id">am_santa <span class="meta">· male · en-US</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/am_santa.mp3"
+             aria-label="am_santa sample, male, en-US"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice am_santa" data-voice="am_santa"
+              aria-label="Copy the command for am_santa">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice am_santa</code></details>
+  </div>
+
+</section>
+<section id="en-gb" lang="en-GB">
+  <h2>English (UK) · en-gb</h2>
+  <div class="voice" id="bf_alice">
+    <div class="id">bf_alice <span class="meta">· female · en-GB</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/bf_alice.mp3"
+             aria-label="bf_alice sample, female, en-GB"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice bf_alice" data-voice="bf_alice"
+              aria-label="Copy the command for bf_alice">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice bf_alice</code></details>
+  </div>
+
+  <div class="voice" id="bf_emma">
+    <div class="id">bf_emma <span class="meta">· female · en-GB</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/bf_emma.mp3"
+             aria-label="bf_emma sample, female, en-GB"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice bf_emma" data-voice="bf_emma"
+              aria-label="Copy the command for bf_emma">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice bf_emma</code></details>
+  </div>
+
+  <div class="voice" id="bf_isabella">
+    <div class="id">bf_isabella <span class="meta">· female · en-GB</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/bf_isabella.mp3"
+             aria-label="bf_isabella sample, female, en-GB"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice bf_isabella" data-voice="bf_isabella"
+              aria-label="Copy the command for bf_isabella">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice bf_isabella</code></details>
+  </div>
+
+  <div class="voice" id="bf_lily">
+    <div class="id">bf_lily <span class="meta">· female · en-GB</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/bf_lily.mp3"
+             aria-label="bf_lily sample, female, en-GB"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice bf_lily" data-voice="bf_lily"
+              aria-label="Copy the command for bf_lily">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice bf_lily</code></details>
+  </div>
+
+  <div class="voice" id="bm_daniel">
+    <div class="id">bm_daniel <span class="meta">· male · en-GB</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/bm_daniel.mp3"
+             aria-label="bm_daniel sample, male, en-GB"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice bm_daniel" data-voice="bm_daniel"
+              aria-label="Copy the command for bm_daniel">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice bm_daniel</code></details>
+  </div>
+
+  <div class="voice" id="bm_fable">
+    <div class="id">bm_fable <span class="meta">· male · en-GB</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/bm_fable.mp3"
+             aria-label="bm_fable sample, male, en-GB"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice bm_fable" data-voice="bm_fable"
+              aria-label="Copy the command for bm_fable">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice bm_fable</code></details>
+  </div>
+
+  <div class="voice" id="bm_george">
+    <div class="id">bm_george <span class="meta">· male · en-GB</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/bm_george.mp3"
+             aria-label="bm_george sample, male, en-GB"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice bm_george" data-voice="bm_george"
+              aria-label="Copy the command for bm_george">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice bm_george</code></details>
+  </div>
+
+  <div class="voice" id="bm_lewis">
+    <div class="id">bm_lewis <span class="meta">· male · en-GB</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/bm_lewis.mp3"
+             aria-label="bm_lewis sample, male, en-GB"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice bm_lewis" data-voice="bm_lewis"
+              aria-label="Copy the command for bm_lewis">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice bm_lewis</code></details>
+  </div>
+
+</section>
+<section id="es" lang="es">
+  <h2>Español · es</h2>
+  <div class="voice" id="ef_dora">
+    <div class="id">ef_dora <span class="meta">· female · es</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/ef_dora.mp3"
+             aria-label="ef_dora sample, female, es"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice ef_dora" data-voice="ef_dora"
+              aria-label="Copy the command for ef_dora">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice ef_dora</code></details>
+  </div>
+
+  <div class="voice" id="em_alex">
+    <div class="id">em_alex <span class="meta">· male · es</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/em_alex.mp3"
+             aria-label="em_alex sample, male, es"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice em_alex" data-voice="em_alex"
+              aria-label="Copy the command for em_alex">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice em_alex</code></details>
+  </div>
+
+  <div class="voice" id="em_santa">
+    <div class="id">em_santa <span class="meta">· male · es</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/em_santa.mp3"
+             aria-label="em_santa sample, male, es"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice em_santa" data-voice="em_santa"
+              aria-label="Copy the command for em_santa">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice em_santa</code></details>
+  </div>
+
+</section>
+<section id="fr" lang="fr">
+  <h2>Français · fr</h2>
+  <div class="voice" id="ff_siwis">
+    <div class="id">ff_siwis <span class="meta">· female · fr</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/ff_siwis.mp3"
+             aria-label="ff_siwis sample, female, fr"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice ff_siwis" data-voice="ff_siwis"
+              aria-label="Copy the command for ff_siwis">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice ff_siwis</code></details>
+  </div>
+
+</section>
+<section id="hi" lang="hi">
+  <h2>हिन्दी · hi</h2>
+  <div class="voice" id="hf_alpha">
+    <div class="id">hf_alpha <span class="meta">· female · hi</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/hf_alpha.mp3"
+             aria-label="hf_alpha sample, female, hi"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice hf_alpha" data-voice="hf_alpha"
+              aria-label="Copy the command for hf_alpha">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice hf_alpha</code></details>
+  </div>
+
+  <div class="voice" id="hf_beta">
+    <div class="id">hf_beta <span class="meta">· female · hi</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/hf_beta.mp3"
+             aria-label="hf_beta sample, female, hi"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice hf_beta" data-voice="hf_beta"
+              aria-label="Copy the command for hf_beta">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice hf_beta</code></details>
+  </div>
+
+  <div class="voice" id="hm_omega">
+    <div class="id">hm_omega <span class="meta">· male · hi</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/hm_omega.mp3"
+             aria-label="hm_omega sample, male, hi"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice hm_omega" data-voice="hm_omega"
+              aria-label="Copy the command for hm_omega">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice hm_omega</code></details>
+  </div>
+
+  <div class="voice" id="hm_psi">
+    <div class="id">hm_psi <span class="meta">· male · hi</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/hm_psi.mp3"
+             aria-label="hm_psi sample, male, hi"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice hm_psi" data-voice="hm_psi"
+              aria-label="Copy the command for hm_psi">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice hm_psi</code></details>
+  </div>
+
+</section>
+<section id="it" lang="it">
+  <h2>Italiano · it</h2>
+  <div class="voice" id="if_sara">
+    <div class="id">if_sara <span class="meta">· female · it</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/if_sara.mp3"
+             aria-label="if_sara sample, female, it"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice if_sara" data-voice="if_sara"
+              aria-label="Copy the command for if_sara">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice if_sara</code></details>
+  </div>
+
+  <div class="voice" id="im_nicola">
+    <div class="id">im_nicola <span class="meta">· male · it</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/im_nicola.mp3"
+             aria-label="im_nicola sample, male, it"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice im_nicola" data-voice="im_nicola"
+              aria-label="Copy the command for im_nicola">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice im_nicola</code></details>
+  </div>
+
+</section>
+<section id="ja" lang="ja">
+  <h2>日本語 · ja</h2>
+  <div class="voice" id="jf_alpha">
+    <div class="id">jf_alpha <span class="meta">· female · ja</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/jf_alpha.mp3"
+             aria-label="jf_alpha sample, female, ja"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice jf_alpha" data-voice="jf_alpha"
+              aria-label="Copy the command for jf_alpha">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice jf_alpha</code></details>
+  </div>
+
+  <div class="voice" id="jf_gongitsune">
+    <div class="id">jf_gongitsune <span class="meta">· female · ja</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/jf_gongitsune.mp3"
+             aria-label="jf_gongitsune sample, female, ja"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice jf_gongitsune" data-voice="jf_gongitsune"
+              aria-label="Copy the command for jf_gongitsune">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice jf_gongitsune</code></details>
+  </div>
+
+  <div class="voice" id="jf_nezumi">
+    <div class="id">jf_nezumi <span class="meta">· female · ja</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/jf_nezumi.mp3"
+             aria-label="jf_nezumi sample, female, ja"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice jf_nezumi" data-voice="jf_nezumi"
+              aria-label="Copy the command for jf_nezumi">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice jf_nezumi</code></details>
+  </div>
+
+  <div class="voice" id="jf_tebukuro">
+    <div class="id">jf_tebukuro <span class="meta">· female · ja</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/jf_tebukuro.mp3"
+             aria-label="jf_tebukuro sample, female, ja"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice jf_tebukuro" data-voice="jf_tebukuro"
+              aria-label="Copy the command for jf_tebukuro">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice jf_tebukuro</code></details>
+  </div>
+
+  <div class="voice" id="jm_kumo">
+    <div class="id">jm_kumo <span class="meta">· male · ja</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/jm_kumo.mp3"
+             aria-label="jm_kumo sample, male, ja"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice jm_kumo" data-voice="jm_kumo"
+              aria-label="Copy the command for jm_kumo">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice jm_kumo</code></details>
+  </div>
+
+</section>
+<section id="pt-br" lang="pt-BR">
+  <h2>Português (BR) · pt-br</h2>
+  <div class="voice" id="pf_dora">
+    <div class="id">pf_dora <span class="meta">· female · pt-BR</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/pf_dora.mp3"
+             aria-label="pf_dora sample, female, pt-BR"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice pf_dora" data-voice="pf_dora"
+              aria-label="Copy the command for pf_dora">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice pf_dora</code></details>
+  </div>
+
+  <div class="voice" id="pm_alex">
+    <div class="id">pm_alex <span class="meta">· male · pt-BR</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/pm_alex.mp3"
+             aria-label="pm_alex sample, male, pt-BR"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice pm_alex" data-voice="pm_alex"
+              aria-label="Copy the command for pm_alex">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice pm_alex</code></details>
+  </div>
+
+  <div class="voice" id="pm_santa">
+    <div class="id">pm_santa <span class="meta">· male · pt-BR</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/pm_santa.mp3"
+             aria-label="pm_santa sample, male, pt-BR"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice pm_santa" data-voice="pm_santa"
+              aria-label="Copy the command for pm_santa">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice pm_santa</code></details>
+  </div>
+
+</section>
+<section id="zh" lang="zh-Hans">
+  <h2>中文 · zh</h2>
+  <div class="voice" id="zf_xiaobei">
+    <div class="id">zf_xiaobei <span class="meta">· female · zh-Hans</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/zf_xiaobei.mp3"
+             aria-label="zf_xiaobei sample, female, zh-Hans"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice zf_xiaobei" data-voice="zf_xiaobei"
+              aria-label="Copy the command for zf_xiaobei">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice zf_xiaobei</code></details>
+  </div>
+
+  <div class="voice" id="zf_xiaoni">
+    <div class="id">zf_xiaoni <span class="meta">· female · zh-Hans</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/zf_xiaoni.mp3"
+             aria-label="zf_xiaoni sample, female, zh-Hans"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice zf_xiaoni" data-voice="zf_xiaoni"
+              aria-label="Copy the command for zf_xiaoni">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice zf_xiaoni</code></details>
+  </div>
+
+  <div class="voice" id="zf_xiaoxiao">
+    <div class="id">zf_xiaoxiao <span class="meta">· female · zh-Hans</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/zf_xiaoxiao.mp3"
+             aria-label="zf_xiaoxiao sample, female, zh-Hans"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice zf_xiaoxiao" data-voice="zf_xiaoxiao"
+              aria-label="Copy the command for zf_xiaoxiao">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice zf_xiaoxiao</code></details>
+  </div>
+
+  <div class="voice" id="zf_xiaoyi">
+    <div class="id">zf_xiaoyi <span class="meta">· female · zh-Hans</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/zf_xiaoyi.mp3"
+             aria-label="zf_xiaoyi sample, female, zh-Hans"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice zf_xiaoyi" data-voice="zf_xiaoyi"
+              aria-label="Copy the command for zf_xiaoyi">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice zf_xiaoyi</code></details>
+  </div>
+
+  <div class="voice" id="zm_yunjian">
+    <div class="id">zm_yunjian <span class="meta">· male · zh-Hans</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/zm_yunjian.mp3"
+             aria-label="zm_yunjian sample, male, zh-Hans"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice zm_yunjian" data-voice="zm_yunjian"
+              aria-label="Copy the command for zm_yunjian">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice zm_yunjian</code></details>
+  </div>
+
+  <div class="voice" id="zm_yunxi">
+    <div class="id">zm_yunxi <span class="meta">· male · zh-Hans</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/zm_yunxi.mp3"
+             aria-label="zm_yunxi sample, male, zh-Hans"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice zm_yunxi" data-voice="zm_yunxi"
+              aria-label="Copy the command for zm_yunxi">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice zm_yunxi</code></details>
+  </div>
+
+  <div class="voice" id="zm_yunxia">
+    <div class="id">zm_yunxia <span class="meta">· male · zh-Hans</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/zm_yunxia.mp3"
+             aria-label="zm_yunxia sample, male, zh-Hans"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice zm_yunxia" data-voice="zm_yunxia"
+              aria-label="Copy the command for zm_yunxia">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice zm_yunxia</code></details>
+  </div>
+
+  <div class="voice" id="zm_yunyang">
+    <div class="id">zm_yunyang <span class="meta">· male · zh-Hans</span></div>
+    <div class="controls">
+      <audio controls preload="none" src="audio/zm_yunyang.mp3"
+             aria-label="zm_yunyang sample, male, zh-Hans"></audio>
+      <button type="button" data-copy="hermes config set plugins.entries.kokoro.settings.voice zm_yunyang" data-voice="zm_yunyang"
+              aria-label="Copy the command for zm_yunyang">copy</button>
+    </div>
+    <details class="cmd"><summary>command</summary><code>hermes config set plugins.entries.kokoro.settings.voice zm_yunyang</code></details>
+  </div>
+
+</section>
+<script>
+(function () {
+  var players = [].slice.call(document.querySelectorAll('audio'));
+  var status = document.getElementById('status');
+  var say = function (message) { status.textContent = message; };
+
+  players.forEach(function (audio) {
+    audio.addEventListener('play', function () {
+      players.forEach(function (other) { if (other !== audio) { other.pause(); } });
+    });
+    audio.addEventListener('error', function () {
+      var fallback = document.createElement('span');
+      fallback.className = 'err';
+      fallback.textContent = 'sample unavailable';
+      audio.replaceWith(fallback);
+      say('Sample failed to load, check docs/audio/');
+    });
+  });
+
+  document.querySelectorAll('button[data-copy]').forEach(function (button) {
+    var row = button.closest('.voice');
+    button.addEventListener('click', function () {
+      navigator.clipboard.writeText(button.dataset.copy).then(function () {
+        button.textContent = 'copied';
+        button.disabled = true;
+        row.setAttribute('aria-current', 'true');
+        row.querySelector('details').open = true;
+        say('Copied the command for ' + button.dataset.voice);
+        setTimeout(function () { button.textContent = 'copy'; button.disabled = false; }, 1500);
+      }, function () {
+        button.textContent = 'copy failed';
+        row.querySelector('details').open = true;
+        say('Could not copy, so the command for ' + button.dataset.voice + ' is open: select it by hand');
+        setTimeout(function () { button.textContent = 'copy'; }, 1500);
+      });
+    });
+  });
+})();
+</script>
+</html>
